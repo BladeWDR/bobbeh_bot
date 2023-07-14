@@ -25,7 +25,6 @@ def handle_response(text: str) -> str:
         return "That's my purse! I don't know you!"
     if 'tiktok' in processed:
         choice: int = random.randint(0,1)
-
         return TIKTOK_RESPONSES[choice]
     if 'pizza' in processed:
         return "I was getting ready, but I worked up an appetite looking for dress pants, so I ordered a pizza, and that ate up a chunk of time."
@@ -41,19 +40,10 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print(f'User ({update.message.chat.id}) in {message_type}: "{text}"')
 
     if message_type == 'group':
-        if "tiktok" in processed: 
             new_text: str = processed.replace(BOT_USERNAME, '').strip()
             response: str = handle_response(new_text)
-        if "purse" in processed: 
-            new_text: str = processed.replace(BOT_USERNAME, '').strip()
-            response: str = handle_response(new_text)
-        if "pizza" in processed: 
-            new_text: str = processed.replace(BOT_USERNAME, '').strip()
-            response: str = handle_response(new_text)
-        else:
-            return
     else:
-        response: str = handle_response(text)
+        response: str = handle_response(processed)
 
     print('Bot:', response)
     await update.message.reply_text(response)
