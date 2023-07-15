@@ -28,8 +28,9 @@ def handle_response(text: str) -> str:
         return TIKTOK_RESPONSES[choice]
     if 'pizza' in processed:
         return "I was getting ready, but I worked up an appetite looking for dress pants, so I ordered a pizza, and that ate up a chunk of time."
-    
-    return "That boy ain't right." 
+    if 'middletown' in processed:
+        return "To tell you the truth, Dad, that sounds boring. It's okay if you're into boring, but I'm not"
+    return ""
 
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -46,7 +47,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         response: str = handle_response(processed)
 
     print('Bot:', response)
-    await update.message.reply_text(response)
+    if response != "":
+        await update.message.reply_text(response)
 
 async def error(update: Update, context: ContextTypes.DEFAULT_TYPE):
     print(f'Update {update} caused error {context.error}')
