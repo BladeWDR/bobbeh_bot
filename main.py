@@ -7,6 +7,7 @@ from telegram.ext import Application, CommandHandler, MessageHandler, filters, C
 TOKEN: Final = '6133928212:AAFDKoye-sJVvmLdPHbXO0Z1xBIKjTwwBFc'
 BOT_USERNAME: Final = "@Bobbeh_bot"
 TIKTOK_RESPONSES = ["https://i.imgur.com/lzWLI6A.jpg", "https://i.imgur.com/3Ytx3vy.jpeg"]
+SQUADOS = ["Poop is one of life's greatest gifts.", "J'onn is getting excited."]
 
 #### BUILD FUNCTIONS ####
 
@@ -30,6 +31,9 @@ def handle_response(text: str) -> str:
         return "I was getting ready, but I worked up an appetite looking for dress pants, so I ordered a pizza, and that ate up a chunk of time."
     if 'middletown' in processed:
         return "To tell you the truth, Dad, that sounds boring. It's okay if you're into boring, but I'm not"
+    if 'poop' in processed:
+        choice: int = random.randint(0,1)
+        return SQUADOS[choice]
     return ""
 
 
