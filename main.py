@@ -29,6 +29,8 @@ def handle_response(text: str) -> str:
         return TIKTOK_RESPONSES[choice]
     if 'pizza' in processed:
         return "I was getting ready, but I worked up an appetite looking for dress pants, so I ordered a pizza, and that ate up a chunk of time."
+    if 'propane' in processed:
+        return "I sell propane, and propane accessories."
     if 'middletown' in processed:
         return "To tell you the truth, Dad, that sounds boring. It's okay if you're into boring, but I'm not"
     if 'poop' in processed:
