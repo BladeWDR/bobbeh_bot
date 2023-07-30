@@ -1,8 +1,6 @@
 FROM python:latest
 LABEL maintainer="bladewdr"
 
-ENV TELEGRAM_API_KEY=
-ENV TELEGRAM_BOT_USERNAME=
 WORKDIR /opt/bobbeh_bot
 COPY main.py .
 
