@@ -1,9 +1,9 @@
 ---
-version: '3.2'
 services:
   bobbeh-bot:
     image: bobbehbot:latest
     container_name: bot
-    environment:
-      - TELEGRAM_API_KEY='6133928212:AAFDKoye-sJVvmLdPHbXO0Z1xBIKjTwwBFc'
     restart: unless-stopped
+    environment:
+      - TELEGRAM_API_KEY=${TELEGRAM_API_KEY}
+      - TELEGRAM_BOT_USERNAME=${TELEGRAM_BOT_USERNAME}
