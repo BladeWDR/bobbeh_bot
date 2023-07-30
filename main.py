@@ -1,10 +1,12 @@
 import random
+import os
 from typing import Final
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 
 # Variables 
-TOKEN: Final = '6133928212:AAFDKoye-sJVvmLdPHbXO0Z1xBIKjTwwBFc'
+# TOKEN: Final = '6133928212:AAFDKoye-sJVvmLdPHbXO0Z1xBIKjTwwBFc'
+TOKEN: Final = os.environ.get("TELEGRAM_API_KEY")
 BOT_USERNAME: Final = "@Bobbeh_bot"
 TIKTOK_RESPONSES = ["https://i.imgur.com/lzWLI6A.jpg", "https://i.imgur.com/3Ytx3vy.jpeg"]
 SQUADOS = ["Poop is one of life's greatest gifts.", "J'onn is getting excited."]
